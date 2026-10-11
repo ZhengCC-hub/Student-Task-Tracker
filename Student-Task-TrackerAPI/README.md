@@ -46,29 +46,30 @@ uv venv
 source .venv/bin/activate
 When it works, your prompt starts with (.venv).
 
-2.3 Install dependencies
+## **2.3 Install dependencie**s
 Using uv:
 
 PowerShell
 uv sync
-2.4 Run the application
+## **2.4 Run the application**
 PowerShell
 uv run uvicorn assignment_tracker.app.main:app --reload --app-dir src
 You should see a line like Uvicorn running on http://127.0.0.1:8000. Press Ctrl+C to stop it.
 
-2.5 Open the interactive documentation
+## **2.5 Open the interactive documentation**
 Open http://127.0.0.1:8000/docs in a browser. This Swagger page lists every endpoint and lets you test them without writing any client code.
 
-2.6 The database
+## **2.6 The database**
 The first time the app starts, it connects to a SQLite file named Tracker.db. Data is kept between restarts.
 
 To start again from an empty database: stop the server, delete Tracker.db, and start the server again. Do this before running tests so the IDs in the examples match yours.
 
-3. Using the API
+## **3. Using the API**
 On the /docs page, click an endpoint, press Try it out, edit the request body or fill in the parameters, then press Execute. The result appears under Server response. Errors come back as {"detail": "..."} with a message explaining what went wrong.
 
 
-5. Sample tests for every endpointDo the tests in order, starting from an empty database (see section 2.6). Part A covers the normal flow, and Part B covers error cases and validation rules.Part A: Normal flowA1. HomeGET /Returns {"message": "Welcome! Visit /docs to try the API."}A2. List Tasks (With Filtering)GET /tasksReturns an empty array [] initially.A3. Create TasksCreate a task: POST /Create_tasksJSON{
+5. Sample tests for every endpointDo the tests in order, starting from an empty database (see section 2.6).
+Part A covers the normal flow, and Part B covers error cases and validation rules.Part A: Normal flowA1. HomeGET /Returns {"message": "Welcome! Visit /docs to try the API."}A2. List Tasks (With Filtering)GET /tasksReturns an empty array [] initially.A3. Create TasksCreate a task: POST /Create_tasksJSON{
   "title": "Finish Calculus Homework",
   "subject": "Mathematics",
   "dueDate": "2026-10-15",
